@@ -25,7 +25,7 @@ export default function FormCreate() {
         isFound(true)
     }
 
-    const successSubmit = () => {
+    const check = () => {
         window.location.assign("/")
     }
 
@@ -40,82 +40,78 @@ export default function FormCreate() {
     })
 
     return(
-      <div className="c-app c-default-layout flex-row align-items-center">
-      <CContainer>
-        <CRow className="justify-content-center">
-          <CCol md="9" lg="7" xl="6">
-            <CCard className="mx-4">
-              <CCardBody className="p-4">
-                <CForm>
-                  <h1>Create User</h1>
-                  <p className="text-muted">Fill in the blanks!</p>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupPrepend>
-                      <CInputGroupText>
-                        <CIcon name="cil-user" />
-                      </CInputGroupText>
-                    </CInputGroupPrepend>
-                    <CInput type="text"
-                            placeholder="Enter your Name"
-                            // autoComplete="username"
-                            onChange={(e) => setName(e.target.value)}
-                            value={name}
-                            required
+        <div className="c-app c-default-layout flex-row align-items-center">
+          <CContainer>
+            <CRow className="justify-content-center">
+              <CCol md="9" lg="7" xl="6">
+                <CCard className="mx-4">
+                  <CCardBody className="p-4">
+                    <CForm>
+                      <h1>Create User</h1>
+                      <p className="text-muted">Fill in the blanks!</p>
+                      <CInputGroup className="mb-3">
+                        <CInputGroupPrepend>
+                          <CInputGroupText>
+                            <CIcon name="cil-user" />
+                          </CInputGroupText>
+                          </CInputGroupPrepend>
+                            <CInput type="text"
+                                    placeholder="Enter your Name"
+                                    autoComplete="username"
+                                    onChange={(e) => setName(e.target.value)}
+                                    value={name}
                             />
-                  </CInputGroup>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupPrepend>
-                      <CInputGroupText>
-                        <CIcon name="cil-lock-locked" />
-                      </CInputGroupText>
-                    </CInputGroupPrepend>
-                    <CInput type="password"
-                            placeholder="Enter your Password"
-                            // autoComplete="new-password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            value={password}
-                            required
+                      </CInputGroup>
+                      <CInputGroup className="mb-3">
+                        <CInputGroupPrepend>
+                          <CInputGroupText>
+                            <CIcon name="cil-lock-locked" />
+                          </CInputGroupText>
+                        </CInputGroupPrepend>
+                        <CInput type="password"
+                                placeholder="Enter your Password"
+                                autoComplete="new-password"
+                                onChange={(e) => setPassword(e.target.value)}
+                                value={password}
                              />
-                  </CInputGroup>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupPrepend>
-                      <CInputGroupText>@</CInputGroupText>
-                    </CInputGroupPrepend>
+                      </CInputGroup>
+                      <CInputGroup className="mb-3">
+                        <CInputGroupPrepend>
+                          <CInputGroupText>@</CInputGroupText>
+                        </CInputGroupPrepend>
+                        <CInput type="text"
+                                placeholder="Enter your Username"
+                                autoComplete="username"
+                                onChange={(e) => setUsername(e.target.value)}
+                                value={username}
 
-                    <CInput type="text"
-                            placeholder="Enter your Username"
-                            // autoComplete="username"
-                            onChange={(e) => setUsername(e.target.value)}
-                            value={username}
-                            required
-                            />
-                  </CInputGroup>
-
-                </CForm>
-                <CCol>
+                        />
+                      </CInputGroup>
+                    </CForm>
+              <CCol>
                 <CButton block
-                           type="submit"
-                           color="success"
-                           onClick={() => isView(true)}>
-                           Create
-                  </CButton>
-                  </CCol>
-              </CCardBody>
+                         type="submit"
+                         color="success"
+                         onClick={() => isView(true)}>
+                         Create
+                </CButton>
+              </CCol>
+            </CCardBody>
             </CCard>
           </CCol>
-
         </CRow>
       </CContainer>
       <CModal show={view} onDismiss={() => isView(false)}>
-                <CModalBody>
-                    New user successfully created
-                </CModalBody>
-                <CModalFooter>
-                    <CButton color="primary" onClick={() => successSubmit()}>
+        <CModalBody>
+           Succes
+        </CModalBody>
+        <CModalFooter>
+          <CButton color="primary"
+                    onClick={() => check()}>
                       OK
-                    </CButton>
-                </CModalFooter>
-          </CModal>
+          </CButton>
+        </CModalFooter>
+      </CModal>
     </div>
     )
 }
